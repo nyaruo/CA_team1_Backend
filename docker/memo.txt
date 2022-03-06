@@ -1,0 +1,11 @@
+docker docker-compose
+react
+    javascript
+css
+    tailwindcss(?)
+django
+sqlite
+
+
+eslint
+prittier
