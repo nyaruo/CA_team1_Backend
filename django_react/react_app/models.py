@@ -1,9 +1,8 @@
 from django.db import models
 
 # Create your models here.
-#test
 
-class User_Models(models.Model):
+class User_Model(models.Model):
 
     class Meta:
         db_table = 'User'

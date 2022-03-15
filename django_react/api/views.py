@@ -1,14 +1,13 @@
 from rest_framework import viewsets, routers
-from react_app.models import User_Models
+from react_app.models import User_Model
 from .serializers import UserSerializer
 
-
 class UserApi(viewsets.ModelViewSet):
-    queryset = User_Models.objects.all()
+    queryset = User_Model.objects.all()
     serializer_class = UserSerializer
 
     def get_queryset(self):
-        queryset = User_Models.objects.all()
+        queryset = User_Model.objects.all()
         L_id = self.request.query_params.get('id')
 
         if L_id:
@@ -17,3 +16,4 @@ class UserApi(viewsets.ModelViewSet):
 
 router = routers.DefaultRouter()
 router.register(r'user', UserApi)
+
