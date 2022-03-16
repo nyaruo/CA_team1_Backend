@@ -4,4 +4,11 @@ __pycache__/
 db-volumes/
 db.sqlite3
 .DS_Store
-CA_frontend
+memo/command.txt
+
+
+
+# CA_frontend
+
+django_react
+

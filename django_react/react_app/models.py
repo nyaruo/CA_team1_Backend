@@ -23,14 +23,6 @@ class User_Model(models.Model):
         default='',
     )
 
-    user_age = models.CharField(
-        verbose_name='userage',
-        blank=True,
-        null=True,
-        max_length=225,
-        default='',
-    )
-
     user_email = models.CharField(
         verbose_name='useremail',
         blank=True,
