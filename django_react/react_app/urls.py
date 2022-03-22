@@ -1,3 +1,4 @@
+##urls.pyはデフォルトでは作成されていないので作成すること。
 from django.urls import path
 from . import views
 

@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-^^m+=^^s)s_#ai%ce&fynw0e&d*q)ji!jc2@rd*pb@9etvzuec'
+SECRET_KEY = 'django-insecure-#owa3p1j1rrbkf-+1hzylq(^f%n@rq+*pu0f737%)02*q3f_@a'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,10 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'react_app', # 追加
-    'rest_framework', # 追加 
-    'api.apps.ApiConfig', # 追加 
-    
+    'accounts', #追加
+    'rest_framework', #追加
+    'rest_framework.authtoken', #追加
+    'djoser', #追加
+    'react_app',   #追加
 ]
 
 MIDDLEWARE = [
@@ -121,13 +122,41 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+AUTH_USER_MODEL = 'accounts.User' # 追加
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
+
+# 追加
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny',
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        #Simple JWTを読み込む
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
     ]
+}
+
+# 追加
+from datetime import timedelta
+SIMPLE_JWT = {
+    #トークンの時間を5分に設定
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=14),
+    'ROTATE_REFRESH_TOKENS': True,
+    'BLACKLIST_AFTER_ROTATION': False,
+    #暗号のアルゴリズム設定
+    'ALGORITHM': 'HS256',
+    'SIGNING_KEY': SECRET_KEY,
+    'VERIFYING_KEY': None,
+    'AUTH_HEADER_TYPES': ('JWT',),
+    'USER_ID_FIELD': 'id',
+    'USER_ID_CLAIM': 'user_id',
+    'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
+    'TOKEN_TYPE_CLAIM': 'token_type',
 }
