@@ -4,6 +4,9 @@ pip3 install djangorestframework-simplejwt
 pip3 install djoser
 pip3 install django-cors-headers
 
+pip3 install python-decouple
+pip3 install dj-database-url
+pip3 install dj_static
 
 npm install react-cookie
 npm install react-hook-form
