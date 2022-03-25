@@ -1,9 +1,14 @@
 from django.http import JsonResponse
 from rest_framework.response import Response
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAuthenticated
+
+
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
 
+from .serializers import StudySerializer
+from base.models import Study
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     @classmethod
@@ -27,3 +32,11 @@ def getRoutes(request):
         '/api/token/refresh',
     ]
     return Response(routes)
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def getStudies(request):
+    user = request.user
+    studies = user.study_set.all()
+    serializer = StudySerializer(studies, many=True)
+    return Response(serializer.data)
