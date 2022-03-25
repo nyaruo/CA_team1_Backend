@@ -4,9 +4,4 @@
 # db-volumes/
 # db.sqlite3
 .DS_Store
-frontend
-CA_frontend
-backend/.env
-memo
-package-lock.json
-package.json
+.env
