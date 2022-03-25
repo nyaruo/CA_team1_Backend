@@ -1,0 +1,72 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+/* ヘッダー部分のスタイル */
+
+header {
+  background-color: #fafafa;
+  width: 96%;
+  height: 5%;
+  padding: 1% 2%;
+  position: absolute;
+  z-index: 1;
+  display: flex;
+}
+
+.header-Nav {
+  display: flex;
+  align-items: center;
+  margin-left: 3%;
+}
+
+.header-Nav ul{
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+
+.header-Nav li {
+  margin: 5%;
+}
+
+.header-Nav li a {
+  text-decoration: none;
+  color: #252525;
+}
+
+.header-right {
+  display: flex;
+  margin-left: auto;
+}
+
+.user-Icon, .sign-Up {
+  display: flex;
+  align-items: center;
+}
+
+.user-Icon p {
+  margin: -40%;
+}
+
+.sign-Up p {
+  margin: -0%;
+}
+
+.sign-Up a {
+  text-decoration: none;
+  color: #252525;
+}
+
+/* ーーー */
+
+main {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.mainText {
+  margin-top: 10%;
+}

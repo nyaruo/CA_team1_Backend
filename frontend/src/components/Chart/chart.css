@@ -1,0 +1,12 @@
+.user__activity {
+  height: 300px;
+  width: 640px;
+  margin: 0 0 40px 40px;
+  padding: 20px;
+  -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+}
+
+.user__activity__info {
+  margin-bottom: 20px;
+}
