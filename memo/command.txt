@@ -3,3 +3,8 @@ pip3 install djangorestframework
 pip3 install djangorestframework-simplejwt
 pip3 install djoser
 pip3 install django-cors-headers
+
+
+npm install react-cookie
+npm install react-hook-form
+npm install react-hook-form react-bootstrap bootstrap
